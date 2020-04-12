@@ -13,5 +13,6 @@ sudo ln -sf /data/web_static/releases/text /data/web_static/current
 
 sudo chown -R ubuntu:ubuntu /data/
 
-sudo sed -i '42i location /hbnb_static {\n alias /data/web_static/current;\n}' /etc/nginx/sites-enabled/default
+location="\\\tlocation /hbnb_static {\n\t\talias /data/web_static/current;\n\t}"
+sed -i " 25i $location" /etc/nginx/sites-enabled/default
 sudo service nginx restart
