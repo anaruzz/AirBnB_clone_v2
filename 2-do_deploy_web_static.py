@@ -5,6 +5,7 @@ from fabric.api import local, run
 from datetime import datetime
 from os import path
 
+
 def do_pack():
     """
     compress files to .tgz format
@@ -14,10 +15,11 @@ def do_pack():
     file_name = 'versions/web_static_{}{}{}{}{}{}.tgz'\
                 .format(n.year, n.month, n.day, n.hour, n.minute, n.second)
     compress = local('mkdir -p versions')
-    compress =  local("tar -cvzf" + file_name + " web_static")
+    compress = local("tar -cvzf" + file_name + " web_static")
     if compress.succeeded:
         return file_name
     return None
+
 
 def do_deploy(archive_path):
     if not path.exists(archive_path):
