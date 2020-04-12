@@ -7,13 +7,8 @@ sudo apt-get install -y nginx
 sudo mkdir -p /data/web_static/shared
 sudo mkdir -p /data/web_static/releases/test
 
-echo "<html>
-  <head>
-  </head>
-  <body>
-    Holberton School
-  </body>
-</html>" | sudo tee /data/web_static/releases/test/index.html
+content="<html>\n\t<head>\n\t</head>\n\t<body>\n\tHolberton School\n\t</body\n</html"
+echo -e "$content"| sudo tee /data/web_static/releases/test/index.html
 
 sudo ln -sf /data/web_static/releases/text /data/web_static/current
 
