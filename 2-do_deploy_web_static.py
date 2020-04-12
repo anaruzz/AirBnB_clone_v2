@@ -5,7 +5,6 @@ from fabric.api import local, run
 from datetime import datetime
 from os import path
 
-env.hosts['35.237.161.240', '35.237.107.60']
 
 def do_pack():
     """
@@ -20,7 +19,6 @@ def do_pack():
     if compress.succeeded:
         return file_name
     return None
-
 
 def do_deploy(archive_path):
     if not path.exists(archive_path):
