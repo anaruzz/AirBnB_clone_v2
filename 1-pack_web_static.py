@@ -12,10 +12,11 @@ def do_pack():
     """
     compress files to .tgz format
     """
-    local(mkdir versions)
+
     file_name = 'versions/web_static_{}{}{}{}{}{}.tgz'\
                 .format(n.year, n.month, n.day, n.hour, n.minute, n.second)
-    compress = local("tar -cvzf" + file_name + "/web_static")
+    compress = local('mkdir versions')
+    compress = local("tar -cvzf" + file_name + "./web_static")
     if compress.succeeded:
         return file_name
     return None
